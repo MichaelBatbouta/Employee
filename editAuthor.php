@@ -151,7 +151,7 @@
 				var col_minMax = row.insertCell(0); // empty
 				var col_books = row.insertCell(1); 
 
-				col_books.colSpan = 7; // cover all columns except + or -
+				col_books.colSpan = 8; // cover all columns except + or -
 				col_books.innerHTML = "Loading..."; 
 
 				col.innerHTML = "-"; // expanded
@@ -184,7 +184,7 @@
 					var output = ""; 
 					var i;  
 					var tbl2_data = "<table id='id2_tbl'>"; 
-				for(i = 0; i < 6; i++)
+				for(i = 0; i < 8; i++)
 				{
 					tbl2_data += "<col></col>"; 
 
@@ -193,32 +193,36 @@
 					for(i = 0; i < json_arr.length; i++)
 					{
 						var row = json_arr[i]; 
-
+					var employee = row.fname
 				tbl2_data += "<tr id=" + row.emp_id + ">";
 				tbl2_data += "<td >"; 
-				tbl2_data += row.fname; 
-				tbl2_data += " "; 
-				tbl2_data += row.lname; 
+	tbl2_data += "<input type='text' value='<?php echo(fname); ?>'/>"; 
+
+ 				tbl2_data += "</td>"; 
+				tbl2_data += "<td >";
+				tbl2_data += "<input type='text' id='lname'>"; 
 				tbl2_data += "</td>"; 
 				tbl2_data += "<td >"; 
-				tbl2_data += row.job_desc; 
+				tbl2_data += "<input type='text' id='job_id'>";  
 				tbl2_data += "</td>"; 
 				tbl2_data += "<td >"; 
-				tbl2_data += row.job_lvl; 
+				tbl2_data += "<input type='text' id='job_lvl'>";  
 				tbl2_data += "</td>"; 
 				tbl2_data += "<td >"; 
-				tbl2_data += row.pub_name; 
+				tbl2_data += "<input type='text' id='pub_id'>";  
 				tbl2_data += "</td>"; 
 				tbl2_data += "<td >"; 
 				tbl2_data += row.hire_date; 
 				tbl2_data += "</td>"; 
+				tbl2_data += "<td >"; 
+				tbl2_data += "<input type='button' value='true'>"; 
+				tbl2_data += "</td>"; 
 				tbl2_data += "</tr>"; // end item
 	
-			
+
 					}
-			
+
 			tbl2_data += "</table>"; 
-			
 
 			col_books.innerHTML = "<div>" + tbl2_data + "</div>"; // display table 
 
