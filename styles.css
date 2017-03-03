@@ -1,0 +1,181 @@
+body{
+	max-width: 1000px; /* easy */
+}
+
+article, aside, figure, footer, header, nav, section{
+	display: block; 
+}
+
+header{
+	overflow: auto; 
+	width: 100%; 
+}
+
+header img{
+	margin-bottom: 40px; 
+	float: left; 
+}
+
+#main_img{ /* shrink image */ 
+	margin: 0 1em; 
+	height: 4em;
+	width: 3em; 
+}
+
+#top_nav{
+	clear: both; /* clear floating point */
+	height: 50px; 	/* may adjust later when buttons are added*/
+	background-color: #dddddd; 
+	border: 1px solid #555; 
+	margin-bottom: 5px; 
+	margin-top: 10px; 
+}
+
+.mid_wrapper{
+
+	/*
+	Prevent wrapping: 
+	http://stackoverflow.com/questions/9672176/prevent-floated-divs-from-wrapping-to-new-line
+	*/ 
+ 
+	/* overflow: auto; */ 
+	margin: 1px auto; 
+	width: 100%; 
+}
+
+#left_side{ 
+	float: left; 
+	width: 180px; 
+	height: 400px; 
+	background-color: #DBDAD8; 
+	border: 1px solid black;
+}
+
+section{
+	width: 900px;  
+	color: blue;  /* text color */
+	background-color: Azure; 
+	height: 400px; /* auto = size according to content */
+	
+	/* border: 1px solid blue; */ 
+}
+
+section nav{
+	background-color: #C7C6C4; 
+}
+
+
+form div label{ 
+	display: inline-block; 
+	float: left;
+	width: 150px; 
+	text-align: left; 
+}
+
+form div input{
+	display: inline-block; 
+}
+
+
+.sect_authors{ /* a div with a class so there is no overflow and we get a scroll bar */ 
+	width: 600px; 
+	overflow: auto;
+	height: 400px; 
+	margin: 1px auto; 
+}
+
+.scrollable{
+	height: 400px; 
+	overflow-y: scroll;  
+}
+
+#div_center{ /* a div with a class so there is no overflow and we get a scroll bar */ 
+	width: 600px; 
+	overflow: auto;
+	height: 400px; 
+	margin: 1px auto; 
+	background-color: Azure; 
+}
+
+ul{ /* applies to vertical (v_list) and horizontal (h_list) lists */
+	list-style-type: none; /* remove bullets */ 
+	margin: 0;  /* remove browser default settings */ 
+	padding: 0; /* remove browser default settings */ 
+}
+
+ul.h_list{
+	overflow: hidden; 
+}
+
+
+li.h_list{
+	font: 24px arial, sans-serif; 
+}
+
+li.h_list a{
+	float: left; 
+	display: block;
+	padding: 5px 32px 5px 32px;
+	text-align: center; 
+	background-color: #dddddd; 
+	text-decoration: none; 
+	
+}
+
+li.h_list a:hover{
+	background-color: #555; 
+	color: white; 
+}
+
+ul.v_list{
+
+	background-color: #DBDAD8; 
+	border: 1px solid #555; 
+}
+
+li.v_list{
+	border-bottom: 1px solid #555; 
+	font: 15px arial, sans-serif; 
+}
+
+li.v_list:last-child{
+	border-bottom: none; 
+}
+
+li.v_list a{
+	display: block; 
+	color: #000; 
+	padding: 8px 0 8px 16px; 
+	width: auto; /* was 60px in example.  trying auto*/ 
+	
+}
+
+li.v_list a:hover{
+	background-color: #555; 
+	color: white; 
+}
+
+#bottom_footer{
+	clear: both; /* remove floating options*/
+}
+
+table{
+	border-collapse: collapse; 
+	background-color: white; 
+}
+
+table, th, td{
+	border: 1px solid black; 
+	font: 15px arial, sans-serif; 
+	cursor: default; 
+}
+
+td{
+	padding-left: 5px;
+	padding-right: 5px; 
+	color: black; 
+}
+
+
+
+
