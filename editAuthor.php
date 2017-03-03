@@ -193,31 +193,34 @@
 					for(i = 0; i < json_arr.length; i++)
 					{
 						var row = json_arr[i]; 
-					var employee = row.fname
-				tbl2_data += "<tr id=" + row.emp_id + ">";
-				tbl2_data += "<td >"; 
-	tbl2_data += "<input type='text' value='<?php echo(fname); ?>'/>"; 
+					<?php
+					$json_output = json_decode(json_arr[i], JSON_PRETTY_PRINT);
+					echo $json_output;
+					?>
+			tbl2_data += "<tr id=" + row.emp_id + ">";
+			tbl2_data += "<td >"; 
+			tbl2_data += "<input type='text' value='<?php echo('fname'); ?>'/>"; 
 
- 				tbl2_data += "</td>"; 
-				tbl2_data += "<td >";
-				tbl2_data += "<input type='text' id='lname'>"; 
-				tbl2_data += "</td>"; 
-				tbl2_data += "<td >"; 
-				tbl2_data += "<input type='text' id='job_id'>";  
-				tbl2_data += "</td>"; 
-				tbl2_data += "<td >"; 
-				tbl2_data += "<input type='text' id='job_lvl'>";  
-				tbl2_data += "</td>"; 
-				tbl2_data += "<td >"; 
-				tbl2_data += "<input type='text' id='pub_id'>";  
-				tbl2_data += "</td>"; 
-				tbl2_data += "<td >"; 
-				tbl2_data += row.hire_date; 
-				tbl2_data += "</td>"; 
-				tbl2_data += "<td >"; 
-				tbl2_data += "<input type='button' value='true'>"; 
-				tbl2_data += "</td>"; 
-				tbl2_data += "</tr>"; // end item
+ 			tbl2_data += "</td>"; 
+			tbl2_data += "<td >";
+			tbl2_data += "<input type='text' value='<?php echo('lname'); ?>' />"; 
+			tbl2_data += "</td>"; 
+			tbl2_data += "<td >"; 
+			tbl2_data += "<input type='text' id='job_id' value='<?php echo('job ID'); ?>' >";  
+			tbl2_data += "</td>"; 
+			tbl2_data += "<td >"; 
+			tbl2_data += "<input type='text' id='job_lvl' value='<?php echo('Job Level'); ?>' >";  
+			tbl2_data += "</td>"; 
+			tbl2_data += "<td >"; 
+			tbl2_data += "<input type='text' id='pub_id' value='<?php echo('publisher ID'); ?>' >";  
+			tbl2_data += "</td>"; 
+			tbl2_data += "<td >"; 
+			tbl2_data += "<input type='text' id='hire_date' value='<?php echo('Hire Date'); ?>' >";   
+			tbl2_data += "</td>"; 
+			tbl2_data += "<td >"; 
+			tbl2_data += "<input type='button' value='true'>"; 
+			tbl2_data += "</td>"; 
+			tbl2_data += "</tr>"; // end item
 	
 
 					}
