@@ -181,6 +181,7 @@
 						return; 
 					}
 
+
 					var output = ""; 
 					var i;  
 					var tbl2_data = "<table id='id2_tbl'>"; 
@@ -193,32 +194,29 @@
 					for(i = 0; i < json_arr.length; i++)
 					{
 						var row = json_arr[i]; 
-					<?php
-					$json_output = json_decode(json_arr[i], JSON_PRETTY_PRINT);
-					echo $json_output;
-					?>
+
 			tbl2_data += "<tr id=" + row.emp_id + ">";
 			tbl2_data += "<td >"; 
-			tbl2_data += "<input type='text' value='<?php echo('fname'); ?>'/>"; 
+			tbl2_data += "<input type='text' id='fname' value='<?php echo('fname'); ?>'/>"; 
 
  			tbl2_data += "</td>"; 
 			tbl2_data += "<td >";
-			tbl2_data += "<input type='text' value='<?php echo('lname'); ?>' />"; 
+			tbl2_data += "<input type='text' id='lname' value='<?php echo('lname'); ?>' />"; 
 			tbl2_data += "</td>"; 
 			tbl2_data += "<td >"; 
-			tbl2_data += "<input type='text' id='job_id' value='<?php echo('job ID'); ?>' >";  
+			tbl2_data += "<input type='number' id='job_id' value='<?php echo('job ID'); ?>' >";  
 			tbl2_data += "</td>"; 
 			tbl2_data += "<td >"; 
-			tbl2_data += "<input type='text' id='job_lvl' value='<?php echo('Job Level'); ?>' >";  
+			tbl2_data += "<input type='number' id='job_lvl' value='<?php echo('Job Level'); ?>' >";  
 			tbl2_data += "</td>"; 
 			tbl2_data += "<td >"; 
-			tbl2_data += "<input type='text' id='pub_id' value='<?php echo('publisher ID'); ?>' >";  
+			tbl2_data += "<input type='number' id='pub_id' >";  
 			tbl2_data += "</td>"; 
 			tbl2_data += "<td >"; 
-			tbl2_data += "<input type='text' id='hire_date' value='<?php echo('Hire Date'); ?>' >";   
+			tbl2_data += "<input type='date' id='hire_date' value='<?php echo('Hire Date'); ?>' >";   
 			tbl2_data += "</td>"; 
 			tbl2_data += "<td >"; 
-			tbl2_data += "<input type='button' value='true'>"; 
+			tbl2_data += "<input type='button' value='Submit' onclick='insert_into_employee(row.emp_id)'>"; 
 			tbl2_data += "</td>"; 
 			tbl2_data += "</tr>"; // end item
 	
@@ -240,6 +238,23 @@
 				col.innerHTML = "+"; // not expanded
 			}
 		}
+function insert_into_employee(emp_id)
+{
+		var req = new XMLHttpRequest(); // var gets us a new one every time 
+
+		var fd = new FormData(); 
+		fd.append("request", "edit_employee"); 
+		d.append("empid", emp_id); 
+		d.append("fname", document.getElementById('fname').value); 
+		d.append("lname", document.getElementById('lname').value); 
+		d.append("jobid", document.getElementById('job_id').value); 
+		d.append("joblvl", document.getElementById('job_lvl').value); 
+		d.append("pubid", document.getElementById('pub_id').value); 
+		d.append("hiredate", document.getElementById('hire_date').value); 
+
+
+}
+
 
 
 	</script> 

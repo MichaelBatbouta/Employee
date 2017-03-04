@@ -98,4 +98,55 @@ function get_books_by_author($emp_id)
 		
 	}// end function get author info
 
+
+function edit_author($emp_id, $fname, $lname, $job_id, $job_lvl, $pub_id, $hire_date)
+{
+
+	$conn; 
+
+	try{
+
+		$conn = connect_to_pubs(); 
+
+	}catch(PDOException $ex){
+		return "open error: " . mysqli_connect_error() ; 
+	}
+
+	$conn->exec("SET CHARACTER SET utf8"); 
+
+	$sql = "UPDATE employee SET fname=$fname, lname=$lname, job_id=$job_id, job_lvl=$job_lvl, pub_id=$pub_id, hire_date=$hire_date WHERE emp_id= ?"; 
+
+	$stmt = $conn->prepare($sql);
+
+       	try{
+
+		$stmt->execute(array($emp_id)); 
+
+		// exception not thrown - send as JSON
+
+		$rows = array(); 
+
+		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+			$rows[] = $row; // add each row to array
+		}
+
+		$retVal = json_encode($rows); 
+
+	}catch(PDOException $e) {
+
+		$retVal = "error getting books: " . $e->getMessage();
+	}
+	 
+	// close connection 
+	$stmt->closeCursor(); 
+	$stmt = null; 
+	$conn = null; // close connection
+
+	return $retVal; 
+		
+	}// end function get author info
+
+
+
+
 ?> 
